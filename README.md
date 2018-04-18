@@ -10,7 +10,12 @@ This set of scripts, written in BASH and *R*, are designed to convert next-gener
 
 ## General Usage Instructions
 * Input: Two Excel files (preferably in .xlsx format) generated from Ion Torrent containing (1) coverage matrix and (2) sample metadata with at least total mapped reads (used for normalization).
-* Output: Directory containing data-tables (comma-separated values) and report with results (tex and PDF if latex is available, see below, else markdown). 
+  - Excel files, located in the data directory ($DATADIR), must have filenames with:
+    1. matching prefix
+    2. "bcmatrix" to indicate matrix and "bc_summary" to indicate metadata.
+  - Reference data as tab-separated values filenamed RefValues.tsv within the script directory ($SCRIPTDIR)
+  - Base Knitr file (either .Rnw or .Rmd) within the script directory ($SCRIPTDIR)
+* Output: Directory containing data-tables (comma-separated values) and report with results (tex and PDF if latex is available, see below, else markdown).
 
 ## Dependencies
 * R (tested on R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch")
@@ -23,4 +28,4 @@ This set of scripts, written in BASH and *R*, are designed to convert next-gener
 * Latex (tested on pdfTeX 3.14159265-2.6-1.40.18, TeX Live 2017)
 
 ## Disclaimer
-**These scripts are made available for educational purposes only.** Use outside of that scope is at the sole discretion of the end-user but must follow the license.
+**These scripts are made available as-is for educational purposes only.** Use outside of that scope is at the sole discretion of the end-user but must follow the software license.
