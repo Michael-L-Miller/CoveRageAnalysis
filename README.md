@@ -2,7 +2,7 @@
 
 ## General Purpose
 
-This set of scripts, written in BASH and *R*, are designed to convert next-generation sequencing data, specifically read-coverage from a Hotspot panel, into z-scores that are then used to identify focal gene amplification and intragenic deletions, such as EGFR and EGFRvIII, respectively.
+These scripts, written in BASH and *R*, are designed to convert next-generation sequencing data, specifically read-coverage from a Hotspot panel, into z-scores that are then used to identify focal gene amplification and intragenic deletions, such as EGFR and EGFRvIII, respectively.
 
 ## Components
 * CoverageAnalysisWrapper.sh – Wrapper shell script that organizes files and defines variables used for downstream analysis by R.
@@ -16,6 +16,9 @@ This set of scripts, written in BASH and *R*, are designed to convert next-gener
   - Reference data as tab-separated values filenamed RefValues.tsv within the script directory ($SCRIPTDIR)
   - Base Knitr file (either .Rnw or .Rmd) within the script directory ($SCRIPTDIR)
 * Output: Directory containing data-tables (comma-separated values) and report with results (tex and PDF if latex is available, see below, else markdown).
+* Recommended workflow:
+  - Place script and Excel files into a single location and run shell script with -S option to suppress all prompts and execute with default settings.
+  - Execute shell script with -h or --help option for additional instructions.
 
 ## Dependencies
 * R (tested on R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch")
@@ -29,3 +32,6 @@ This set of scripts, written in BASH and *R*, are designed to convert next-gener
 
 ## Disclaimer
 **These scripts are made available as-is for educational purposes only.** Use outside of that scope is at the sole discretion of the end-user but must follow the software license.
+
+## Versioning
+* Wrapper and Knitr files are tracked together. See Knitr file for detailed information.
