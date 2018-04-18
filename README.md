@@ -14,12 +14,12 @@ This set of scripts, written in BASH and *R*, are designed to convert next-gener
 
 ## Dependencies
 * R (tested on R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch")
-- stargazer (tested with v5.2.1)
-- RColorBrewer (tested with v1.1-2)
-- formatR (tested with v1.5)
-- gdata (tested with v2.18.0)
-- knitr (tested with v1.20)
-- Heatmap.3.R (included in repository, forked from obigriffith/biostar-tutorials)
+  - stargazer (tested with v5.2.1)
+  - RColorBrewer (tested with v1.1-2)
+  - formatR (tested with v1.5)
+  - gdata (tested with v2.18.0)
+  - knitr (tested with v1.20)
+  - Heatmap.3.R (included in repository, forked from obigriffith/biostar-tutorials)
 * Latex (tested on pdfTeX 3.14159265-2.6-1.40.18, TeX Live 2017)
 
 ## Disclaimer
