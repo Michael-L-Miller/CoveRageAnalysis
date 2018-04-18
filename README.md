@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/129794506.svg)](https://zenodo.org/badge/latestdoi/129794506)
+
 # CoveRageAnalysis
 
 ## General Purpose
