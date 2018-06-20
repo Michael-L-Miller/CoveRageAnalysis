@@ -38,7 +38,7 @@ The goal of CoveRageAnalysis is to convert read coverage from targeted next-gene
 ## Executing Package
 
 * Open *R* and execute the following commands:
-  # Filenames and folders should not contain spaces. Only use short alphanumeric strings with underscores.
+* Filenames and folders should not contain spaces. Only use short alphanumeric strings with underscores.
   library(CoveRageAnalysis)
   setwd("/path/to/workingDirectory")
   runAnalysis()
