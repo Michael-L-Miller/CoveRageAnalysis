@@ -1,0 +1,17 @@
+Package: CoveRageAnalysis
+Title: Detect Focal Gene Amplification and EGFRvIII from Targeted NGS 
+Version: 0.1.4
+Authors@R: person("Michael", "Miller", email = "mmiller0712@icloud.com",
+                  role = c("aut", "cre"))
+Author: Michael L. Miller <mmiller0712@icloud.com>
+Maintainer: Michael L. Miller <mmiller0712@icloud.com>
+Description: Converts read coverage from targeted next-generation sequencing data, specifically derived from the Ion Torrent AmpliSeq Cancer Hotspot Panel V2, into z-scores that are then used to identify focal gene amplification and EGFRvIII.
+Depends: R (>= 3.3.2)
+License: MIT + file LICENSE
+LazyData: true
+Imports:
+    RColorBrewer (>= 1.1-2),
+    formatR (>= 1.5),
+    gdata (>= 2.18.0),
+    knitr (>= 1.20)
+RoxygenNote: 6.0.1

@@ -1,0 +1,104 @@
+%% LyX 2.2.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[11pt]{article}
+\usepackage[top=1in, bottom=1in, left=0.5in, right=0.5in]{geometry}
+\usepackage{palatino}
+\usepackage{fontspec}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[spaces]{url}
+\usepackage[unicode=true,pdfusetitle,bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=2,breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=true]{hyperref}
+\hypersetup{pdfstartview={XYZ null null 1}}
+\usepackage{listings}
+\usepackage{tabu}
+
+\begin{document}
+
+<<setup, include=FALSE, cache=FALSE>>=
+#library(CoveRageAnalysis)
+#defineVariables()
+opts_chunk$set(fig.path=paste(WDIR,PROJECTID,"figures/",sep="/"), fig.align='center', fig.show='hold', console.width=90, tidy=TRUE)
+@
+
+\title{CoveRageAnalysis Molecular Pathology Report}
+
+\author{Analysis performed by \Sexpr{AUTHOR} on \Sexpr{DATE} at \Sexpr{TIME}}
+\date{\vspace{-3ex}}
+\maketitle
+
+\section{Overview}
+\textit{\Sexpr{packageDescription("CoveRageAnalysis")$Description}} This report was generated using \Sexpr{packageDescription("CoveRageAnalysis")$Package}, v. \Sexpr{packageDescription("CoveRageAnalysis")$Version}.
+\par
+\textbf{** For internal use only **}
+
+\subsection{Input files and locations}
+\noindent
+Project assigned identifier: \textbf{\Sexpr{PROJECTID}}\\
+
+\noindent
+The working directory shown below was searched:
+<<WDIR, echo=FALSE, comment='--', tidy.opts=list(width.cutoff=50)>>=
+WDIR
+@
+
+\noindent
+The following files were included in this analysis:
+<<ReadData, echo=FALSE, comment='--', tidy.opts=list(width.cutoff=50)>>=
+#defineFiles()
+paste("Found datafile:", FILE)
+paste("Found metafile:", SUMMARY)
+@
+
+\noindent
+\Sexpr{length(SAMPLES)} sample(s) found in the aforementioned files:
+<<MetaData, echo=FALSE, commment="", tidy.opts=list(width.cutoff=60)>>=
+META[,2:3]
+@
+
+\subsection{Data processing and normalization}
+\noindent
+Calculated normalized gene coverage (limited to first 5 entries):
+<<RelativeGene, echo=FALSE, commment="", tidy.opts=list(width.cutoff=60)>>=
+normalizeAmplicons()
+normalizeGenes()
+head(round(DFNORMGENE, digits=2))
+@
+
+\noindent
+Calculated z-scores based on mean and standard deviation of reference values (limited to first 5 entries):
+<<CalculateScores, echo=FALSE, tidy.opts=list(width.cutoff=60)>>=
+mergeData()
+tableZCORES=calculateScores()
+head(round(tableZCORES,4))
+@
+
+\section{Results}
+\subsection{Focal gene amplification}
+\noindent
+Samples and genes with Z-scores above 5:
+<<FocalGeneAmplification, echo=FALSE, tidy.opts=list(width.cutoff=60)>>=
+reportAmplifications()
+@
+\vspace{30ex}
+\subsection{EGFRvIII Deletion}
+\noindent
+Samples with EGFRvIII based on Z-score above 10:
+<<EGFRvIII, echo=FALSE, tidy.opts=list(width.cutoff=60)>>=
+reportV3()
+@
+\vspace{-35ex}
+\section{Appendix}
+Comma-separated values were saved to the directory shown below:
+<<OutputTables, echo=FALSE, tidy.opts=list(width.cutoff=60)>>=
+writeFiles()
+@
+
+\subsection{Session information}
+Information on the \textit{R} environment and packages used in this analysis is listed below.
+<<sessionInfo, echo=FALSE, tidy.opts=list(width.cutoff=60)>>=
+sessionInfo()
+@
+
+Currently for educational purposes only.
+\end{document}
+
